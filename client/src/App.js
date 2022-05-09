@@ -3,7 +3,7 @@ import "./App.css";
 function App() {
   return (
     <div className="App">
-      <h1>this is my opal code</h1>
+      <h1>This is wipp's code</h1>
     </div>
   );
 }
