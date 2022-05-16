@@ -10,7 +10,7 @@ import { SliderData } from "./website/component/SliderData";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
-    <ImageSlider slides={SliderData}/>
+    <App/>
   </BrowserRouter>
 );
 
