@@ -1,0 +1,109 @@
+.Navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 85px;
+  z-index: 12;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 25px;
+  background-color: #dbbba4;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.Navbar-logo {
+  height: 180%;
+  cursor: pointer;
+}
+
+.Navbar-menu ul {
+  list-style-type: none;
+  display: inline-flex;
+  column-gap: 50px;
+  /* display: none; */
+}
+
+.Navbar-menu ul li {
+  cursor: pointer;
+}
+
+.Navbar-menu ul li.active {
+  color: rgba(0, 0, 0, 0.581);
+}
+
+.Navbar-menu ul li:hover {
+  transform: translateY(2px);
+}
+
+/* dropdown responsive */
+.Navbar-bar {
+  display: none;
+}
+
+.Navbar-bar button {
+  padding: 10px;
+  border: 3px solid rgba(0, 0, 0, 0.1);
+  outline: none;
+  background-color: inherit;
+  cursor: pointer;
+  color: white;
+  font-size: 1.5rem;
+  border-radius: 10px;
+}
+
+.Navbar-bar button:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.Navbar-bar button:active {
+  background-color: rgba(0, 0, 0, 0.1);
+  transform: translateY(4px);
+}
+
+.Navbar-menu_resp {
+  position: fixed;
+  /* top: 85px; */
+  top: -400px;
+  left: 0;
+  right: 0;
+  transition: top 0.2s;
+}
+
+.Navbar-menu_resp.show {
+  top: 85px;
+}
+
+.Navbar-menu_resp ul {
+  list-style-type: none;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.Navbar-menu_resp ul li {
+  padding: 15px 20px;
+}
+
+.Navbar-menu_resp ul li:last-child {
+  border-top: 0.5px solid rgba(0, 0, 0, 0.1);
+}
+
+.Navbar-menu_resp ul li:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+@media only screen and (max-width: 960px) {
+  .Navbar-menu {
+    display: none;
+  }
+  .Navbar-sign {
+    display: none;
+  }
+  .Navbar-bar {
+    display: block;
+  }
+  .Navbar-logo {
+    height: 140%;
+  }
+}
