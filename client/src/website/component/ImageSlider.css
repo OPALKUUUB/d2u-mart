@@ -1,29 +1,41 @@
-.slider{
-    position: relative;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.slider {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #040629;
 }
 
-.Image{
-    width: 1000px;
-    height: 600px;
-    border-radius: 10px;
+.Image {
+  width: 1000px;
+  height: 600px;
+  border-radius: 10px;
 }
 
-.right-arrow{
-    width: 100px;
-    height: 200px;
-    position: absolute;
-    right: 0px;
-    top: 46%;
+.right-arrow {
+  width: 100px;
+  height: 200px;
+  position: absolute;
+  right: 0px;
+  top: 46%;
 }
 
-.left-arrow{
-    width: 100px;
-    height: 200px;
-    position: absolute;
-    left: 0px;
-    top: 46%;
+.left-arrow {
+  width: 100px;
+  height: 200px;
+  position: absolute;
+  left: 0px;
+  top: 46%;
+}
+
+.slide {
+  opacity: 0;
+  transition-duration: 1s ease;
+}
+
+.slide.active {
+  opacity: 1;
+  transition-duration: 1s;
+  transition: scale(1.05);
 }
