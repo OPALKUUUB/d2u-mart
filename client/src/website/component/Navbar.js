@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { WebContext } from "../context/WebProvider";
 import "./Navbar.css";
 
 export const Navbar = () => {
+  const { handleLoginModal } = useContext(WebContext);
   const [showResp, setShowResp] = useState(false);
   return (
     <>
@@ -22,7 +24,10 @@ export const Navbar = () => {
         </div>
 
         <div className="Navbar-sign">
-          <a href="/#">เข้าสู่ระบบ</a> | <a href="/#">ลงทะเบียน</a>
+          <a href="/#" onClick={() => handleLoginModal()}>
+            เข้าสู่ระบบ
+          </a>{" "}
+          | <a href="/#">ลงทะเบียน</a>
         </div>
 
         <div className="Navbar-bar">
@@ -42,7 +47,7 @@ export const Navbar = () => {
           <li>บริการของเรา </li>
           <li>ติดต่อเรา</li>
           <li>ลงทะเบียน</li>
-          <li>เข้าสู่ระบบ</li>
+          <li onClick={() => handleLoginModal()}>เข้าสู่ระบบ</li>
         </ul>
       </div>
     </>

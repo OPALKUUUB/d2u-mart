@@ -14,7 +14,7 @@ exports.login = (req, res) => {
   console.log(login);
   const sql = `
     SELECT password, id
-    FROM user_admins
+    FROM user_customers
     WHERE username = ?;
     `;
 
@@ -23,21 +23,21 @@ exports.login = (req, res) => {
       console.log("Login Failure (Cann't Query) 💥");
       console.log(err);
       res.status(400).json({
-        status: "fail",
+        status: false,
         message: "Error: " + err.sqlMessage,
       });
     } else {
       if (!result.length) {
         console.log("Login Failure (No Data) 💥");
         res.status(400).json({
-          status: "fail",
+          status: false,
           message: "Password doesn't match with username!",
         });
       } else if (result[0].password === body.password) {
         console.log("Login successfully 👍");
         let token = genToken(body.username, result[0].id);
         res.status(200).json({
-          status: "success",
+          status: true,
           message: "Customer Login successfully 👍",
           token: token,
         });
