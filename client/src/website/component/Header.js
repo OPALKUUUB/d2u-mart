@@ -1,5 +1,5 @@
 import "./Header.css";
-export const Header = () => {
+const Header = () => {
   return (
     <div className="Header">
       <h6 className="head-content">
@@ -31,3 +31,5 @@ export const Header = () => {
     </div>
   );
 };
+
+export default Header;

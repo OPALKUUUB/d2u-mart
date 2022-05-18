@@ -1,6 +1,16 @@
 import React, { useContext, useState } from "react";
+import { NavLink } from "react-router-dom";
+import styled from "styled-components";
 import { WebContext } from "../context/WebProvider";
 import "./Navbar.css";
+
+const StyleNavLink = styled(NavLink)`
+  text-decoration: none;
+  color: white;
+  &.active {
+    color: rgba(0, 0, 0, 0.7);
+  }
+`;
 
 export const Navbar = () => {
   const { handleLoginModal } = useContext(WebContext);
@@ -16,10 +26,20 @@ export const Navbar = () => {
 
         <div className="Navbar-menu">
           <ul>
-            <li className="active">หน้าหลัก</li>
-            <li>บริการนําเข้าสินค้า</li>
-            <li>บริการของเรา </li>
-            <li>ติดต่อเรา</li>
+            <li>
+              <StyleNavLink to="/home">หน้าหลัก</StyleNavLink>
+            </li>
+            <li>
+              <StyleNavLink to="/import-service">
+                บริการนําเข้าสินค้า
+              </StyleNavLink>
+            </li>
+            <li>
+              <StyleNavLink to="/our-service">บริการของเรา</StyleNavLink>
+            </li>
+            <li>
+              <StyleNavLink to="/contact-us">ติดต่อเรา</StyleNavLink>
+            </li>
           </ul>
         </div>
 

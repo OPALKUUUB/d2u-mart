@@ -15,7 +15,7 @@ async function loginUser(credentials) {
 }
 
 export const Login = () => {
-  const { token, setToken, logout } = useToken();
+  const { setToken } = useToken();
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
   const handleLogin = async (e) => {
