@@ -22,6 +22,41 @@ export const NavbarLeft = styled.div`
   row-gap: 10px;
 `;
 
+export const NavbarRight = styled.div`
+  cursor: pointer;
+  display: flex;
+  &:last-child {
+    align-items: center;
+    column-gap: 10px;
+  }
+`;
+
 export const ImgLogo = styled.img`
   width: 180px;
+`;
+
+export const Dropdown = styled.div`
+  position: fixed;
+  top: ${(props) => (props.active ? "120px" : "-150px")};
+  right: 0;
+  background-color: white;
+  transition: all 0.2s ease;
+  ul {
+    list-style-type: none;
+  }
+  ul li {
+    padding: 15px 30px;
+    cursor: pointer;
+  }
+  ul li:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+    color: white;
+  }
+`;
+
+export const IconDropdown = styled.div`
+  float: right;
+  transform: rotate(0deg);
+  transition: all 0.3s ease-out;
+  transform: ${(props) => (props.rotate ? `rotate(180deg)` : "")};
 `;

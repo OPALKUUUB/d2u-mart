@@ -1,9 +1,18 @@
-import React from "react";
-import { ImgLogo, NavbarContainer, NavbarLeft } from "./Navbar.style";
+import React, { useState } from "react";
+import {
+  Dropdown,
+  IconDropdown,
+  ImgLogo,
+  NavbarContainer,
+  NavbarLeft,
+  NavbarRight,
+} from "./Navbar.style";
 import { Link } from "react-router-dom";
 import LogoImg from "../image/logo_none.png";
+import { HiChevronDoubleDown } from "react-icons/hi";
 
 export const Navbar = () => {
+  const [dropdown, setDropdown] = useState(false);
   return (
     <>
       <NavbarContainer>
@@ -16,13 +25,17 @@ export const Navbar = () => {
           </p>
           <ImgLogo src={LogoImg} alt="logo-d2uservice" />
         </NavbarLeft>
-
-        <div>
-          <h5>Username</h5>
-          <p>150 คะแนน</p>
-        </div>
+        <NavbarRight onClick={() => setDropdown(!dropdown)}>
+          <div>
+            <h5>Username</h5>
+            <p>150 คะแนน</p>
+          </div>
+          <IconDropdown rotate={dropdown ? 1 : 0}>
+            <HiChevronDoubleDown />
+          </IconDropdown>
+        </NavbarRight>
       </NavbarContainer>
-      <div>
+      <Dropdown active={dropdown}>
         <ul>
           <li>ตะกร้า</li>
           <li>ประวัติการสั่งสินค้า</li>
@@ -30,7 +43,7 @@ export const Navbar = () => {
           <li>ชำระเงิน</li>
           <li>จัดการโปรไฟล์</li>
         </ul>
-      </div>
+      </Dropdown>
     </>
   );
 };
