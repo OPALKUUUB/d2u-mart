@@ -6,23 +6,31 @@ import {
   NavbarContainer,
   NavbarLeft,
   NavbarRight,
+  NavMenu,
+  StyledNavLink,
 } from "./Navbar.style";
-import { Link } from "react-router-dom";
 import LogoImg from "../image/logo_none.png";
 import { HiChevronDoubleDown } from "react-icons/hi";
+import useToken from "../../../hook/useToken";
 
 export const Navbar = () => {
+  const { logout } = useToken();
   const [dropdown, setDropdown] = useState(false);
   return (
     <>
       <NavbarContainer>
         <NavbarLeft>
-          <p>
-            <Link to="/home">Home</Link> |{" "}
-            <Link to="/contact-us">Contact Us</Link> |{" "}
-            <Link to="/auction">ประมูล</Link> | <Link to="/mart">Mart</Link> |{" "}
-            <Link to="/our-service">บริการของเรา</Link>
-          </p>
+          <NavMenu>
+            <StyledNavLink to="/home">Home</StyledNavLink>
+            <span>|</span>
+            <StyledNavLink to="/contact-us">Contact Us</StyledNavLink>
+            <span>|</span>
+            <StyledNavLink to="/auction">ประมูล</StyledNavLink>
+            <span>|</span>
+            <StyledNavLink to="/mart">Mart</StyledNavLink>
+            <span>|</span>
+            <StyledNavLink to="/our-service">บริการของเรา</StyledNavLink>
+          </NavMenu>
           <ImgLogo src={LogoImg} alt="logo-d2uservice" />
         </NavbarLeft>
         <NavbarRight onClick={() => setDropdown(!dropdown)}>
@@ -42,6 +50,7 @@ export const Navbar = () => {
           <li>ติดตามสินค้า</li>
           <li>ชำระเงิน</li>
           <li>จัดการโปรไฟล์</li>
+          <li onClick={logout}>ออกจากระบบ</li>
         </ul>
       </Dropdown>
     </>

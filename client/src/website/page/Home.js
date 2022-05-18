@@ -2,7 +2,7 @@ import React from "react";
 import Header from "../component/Header";
 import ImageSlider from "../component/ImageSlider";
 
-export const Home = () => {
+const Home = () => {
   return (
     <>
       <Header />
@@ -10,3 +10,5 @@ export const Home = () => {
     </>
   );
 };
+
+export default Home;

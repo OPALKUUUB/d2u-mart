@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
 export const NavbarContainer = styled.div`
@@ -22,6 +23,22 @@ export const NavbarLeft = styled.div`
   row-gap: 10px;
 `;
 
+export const NavMenu = styled.div`
+  display: flex;
+  column-gap: 20px;
+  span {
+    color: white;
+  }
+`;
+
+export const StyledNavLink = styled(NavLink)`
+  text-decoration: none;
+  color: white;
+  &.active {
+    color: rgba(0, 0, 0, 0.7);
+  }
+`;
+
 export const NavbarRight = styled.div`
   cursor: pointer;
   display: flex;
@@ -37,7 +54,8 @@ export const ImgLogo = styled.img`
 
 export const Dropdown = styled.div`
   position: fixed;
-  top: ${(props) => (props.active ? "120px" : "-150px")};
+  z-index: 10;
+  top: ${(props) => (props.active ? "120px" : "-230px")};
   right: 0;
   background-color: white;
   transition: all 0.2s ease;
@@ -51,6 +69,9 @@ export const Dropdown = styled.div`
   ul li:hover {
     background-color: rgba(0, 0, 0, 0.2);
     color: white;
+  }
+  ul li:last-child {
+    border-top: 0.5px solid rgba(0, 0, 0, 0.2);
   }
 `;
 

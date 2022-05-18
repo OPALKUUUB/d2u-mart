@@ -1,10 +1,9 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import useToken from "../hook/useToken";
 import { Navbar } from "./component/Navbar/Navbar";
+import Home from "../website/page/Home";
 
 export const AppSystem = () => {
-  const { logout } = useToken();
   return (
     <>
       <Navbar />
@@ -16,28 +15,26 @@ export const AppSystem = () => {
         <Route path="/mart" element={<Mart />} />
         <Route path="/our-service" element={<OurService />} />
       </Routes>
-
-      <button onClick={logout}>logout</button>
     </>
   );
 };
 
-const Home = () => {
-  return <div>home</div>;
-};
+// const Home = () => {
+//   return <h1 style={{ margin: "300px" }}>home</h1>;
+// };
 
 const ContactUs = () => {
-  return <h1>Contact Us</h1>;
+  return <h1 style={{ margin: "300px" }}>Contact Us</h1>;
 };
 
 const Auction = () => {
-  return <h1>Auction</h1>;
+  return <h1 style={{ margin: "300px" }}>Auction</h1>;
 };
 
 const Mart = () => {
-  return <h1>Mart</h1>;
+  return <h1 style={{ margin: "300px" }}>Mart</h1>;
 };
 
 const OurService = () => {
-  return <h1>Our Service</h1>;
+  return <h1 style={{ margin: "300px" }}>Our Service</h1>;
 };

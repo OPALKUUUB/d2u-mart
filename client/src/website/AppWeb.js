@@ -2,7 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import React from "react";
 import { Navbar } from "./component/Navbar";
 import { WebProvider } from "./context/WebProvider";
-import { Home } from "./page/Home";
+import Home from "./page/Home";
 
 const AppWeb = () => {
   return (
