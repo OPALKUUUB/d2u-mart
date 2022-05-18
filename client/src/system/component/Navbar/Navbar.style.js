@@ -29,6 +29,9 @@ export const NavMenu = styled.div`
   span {
     color: white;
   }
+  & #link:hover {
+    transform: translateY(4px);
+  }
 `;
 
 export const StyledNavLink = styled(NavLink)`
@@ -80,4 +83,56 @@ export const IconDropdown = styled.div`
   transform: rotate(0deg);
   transition: all 0.3s ease-out;
   transform: ${(props) => (props.rotate ? `rotate(180deg)` : "")};
+`;
+
+export const AuctionWrapper = styled.div`
+  position: relative;
+`;
+
+export const AuctionButton = styled.button`
+  font-size: 1rem;
+  font-family: "Prompt", sans-serif;
+  outline: none;
+  background-color: inherit;
+  border: none;
+  cursor: pointer;
+`;
+export const AuctionDropdown = styled.div`
+  position: absolute;
+  top: ${(props) => (props.active ? "40px" : "-190px")};
+  left: 0;
+  /* display: ${(props) => (props.active ? "block" : "none")}; */
+  opacity: ${(props) => (props.active ? 1 : 0)};
+  transition: all 0.3s ease-out;
+  ul {
+    list-style-type: none;
+    background-color: #dac6b7;
+  }
+  ul li {
+    cursor: pointer;
+    color: white;
+    padding: 10px 20px;
+  }
+  ul li:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+`;
+
+export const IconAuctionDropdown = styled.div`
+  position: relative;
+  color: white;
+  font-size: 0.8rem;
+  cursor: pointer;
+  .icon {
+    position: absolute;
+    top: 5px;
+    transform: rotate(0deg);
+    transition: all 0.3s ease-out;
+    transform: ${(props) => (props.rotate ? `rotate(180deg)` : "")};
+  }
+`;
+
+export const AuctionWrapperItem = styled.div`
+  display: flex;
+  column-gap: 10px;
 `;

@@ -11,7 +11,7 @@ export const AppSystem = () => {
         <Route index element={<Home />} />
         <Route path="/home" element={<Home />} />
         <Route path="/contact-us" element={<ContactUs />} />
-        <Route path="/auction" element={<Auction />} />
+        <Route path="/yahoo" element={<Auction />} />
         <Route path="/mart" element={<Mart />} />
         <Route path="/our-service" element={<OurService />} />
       </Routes>
