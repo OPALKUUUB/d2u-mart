@@ -22,6 +22,7 @@ import useToken from "../../../hook/useToken";
 export const Navbar = () => {
   const { logout } = useToken();
   const dropdownRef = useRef(null);
+  const buttonDropdownRef = useRef(null);
   const auctionDropdownRef = useRef(null);
   const [dropdown, setDropdown] = useState(false);
   const [auctionDropdown, setAuctionDropdown] = useState(false);
@@ -32,19 +33,10 @@ export const Navbar = () => {
         dropdownRef.current &&
         !dropdownRef.current.contains(e.target)
       ) {
-        setDropdown(false);
+        if (!buttonDropdownRef.current.contains(e.target)) {
+          setDropdown(false);
+        }
       }
-    };
-    document.addEventListener("mousedown", checkIfClickedOutside);
-
-    return () => {
-      // Cleanup the event listener
-      document.removeEventListener("mousedown", checkIfClickedOutside);
-    };
-  }, [dropdown]);
-
-  useEffect(() => {
-    const checkIfClickedOutside = (e) => {
       if (
         auctionDropdown &&
         auctionDropdownRef.current &&
@@ -53,31 +45,25 @@ export const Navbar = () => {
         setAuctionDropdown(false);
       }
     };
-
     document.addEventListener("mousedown", checkIfClickedOutside);
 
     return () => {
       // Cleanup the event listener
       document.removeEventListener("mousedown", checkIfClickedOutside);
     };
-  }, [auctionDropdown]);
+  }, [dropdown, auctionDropdown]);
   return (
     <>
       <NavbarContainer>
         <NavbarLeft>
           <NavMenu>
-            <StyledNavLink to="/home" id="link">
-              Home
-            </StyledNavLink>
+            <StyledNavLink to="/home">Home</StyledNavLink>
             <span>|</span>
-            <StyledNavLink to="/contact-us" id="link">
-              Contact Us
-            </StyledNavLink>
+            <StyledNavLink to="/contact-us">Contact Us</StyledNavLink>
             <span>|</span>
             <AuctionWrapper>
               <AuctionWrapperItem
                 onClick={() => setAuctionDropdown(!auctionDropdown)}
-                id="link"
               >
                 <AuctionButton>
                   <StyledNavLink to="/yahoo">
@@ -109,17 +95,16 @@ export const Navbar = () => {
               </AuctionDropdown>
             </AuctionWrapper>
             <span>|</span>
-            <StyledNavLink to="/mart" id="link">
-              Mart
-            </StyledNavLink>
+            <StyledNavLink to="/mart">Mart</StyledNavLink>
             <span>|</span>
-            <StyledNavLink to="/our-service" id="link">
-              บริการของเรา
-            </StyledNavLink>
+            <StyledNavLink to="/our-service">บริการของเรา</StyledNavLink>
           </NavMenu>
           <ImgLogo src={LogoImg} alt="logo-d2uservice" />
         </NavbarLeft>
-        <NavbarRight onClick={() => setDropdown(!dropdown)}>
+        <NavbarRight
+          onClick={() => setDropdown(!dropdown)}
+          ref={buttonDropdownRef}
+        >
           <div>
             <h5>Username</h5>
             <p>150 คะแนน</p>
