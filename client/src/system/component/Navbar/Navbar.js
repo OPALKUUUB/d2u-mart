@@ -35,7 +35,6 @@ export const Navbar = () => {
         setDropdown(false);
       }
     };
-
     document.addEventListener("mousedown", checkIfClickedOutside);
 
     return () => {

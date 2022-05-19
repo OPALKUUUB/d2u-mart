@@ -26,6 +26,7 @@ export const NavbarLeft = styled.div`
 export const NavMenu = styled.div`
   display: flex;
   column-gap: 20px;
+  font-size: 0.9rem;
   span {
     color: white;
   }
@@ -90,7 +91,7 @@ export const AuctionWrapper = styled.div`
 `;
 
 export const AuctionButton = styled.button`
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-family: "Prompt", sans-serif;
   outline: none;
   background-color: inherit;
@@ -101,6 +102,7 @@ export const AuctionDropdown = styled.div`
   position: absolute;
   top: ${(props) => (props.active ? "40px" : "-190px")};
   left: 0;
+
   /* display: ${(props) => (props.active ? "block" : "none")}; */
   opacity: ${(props) => (props.active ? 1 : 0)};
   transition: all 0.3s ease-out;
