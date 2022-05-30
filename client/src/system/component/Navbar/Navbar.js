@@ -59,8 +59,6 @@ export const Navbar = () => {
           <NavMenu>
             <StyledNavLink to="/home">Home</StyledNavLink>
             <span>|</span>
-            <StyledNavLink to="/contact-us">Contact Us</StyledNavLink>
-            <span>|</span>
             <AuctionWrapper>
               <AuctionWrapperItem
                 onClick={() => setAuctionDropdown(!auctionDropdown)}
@@ -95,9 +93,15 @@ export const Navbar = () => {
               </AuctionDropdown>
             </AuctionWrapper>
             <span>|</span>
+            <StyledNavLink to="/mart">Tracking</StyledNavLink>
+            <span>|</span>
             <StyledNavLink to="/mart">Mart</StyledNavLink>
             <span>|</span>
             <StyledNavLink to="/our-service">บริการของเรา</StyledNavLink>
+            <span>|</span>
+            <StyledNavLink to="/our-service">ชำระค่าบริการ</StyledNavLink>
+            <span>|</span>
+            <StyledNavLink to="/contact-us">Contact Us</StyledNavLink>
           </NavMenu>
           <ImgLogo src={LogoImg} alt="logo-d2uservice" />
         </NavbarLeft>
