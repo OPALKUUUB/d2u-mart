@@ -10,8 +10,6 @@ const ImageSlider = (slides) => {
     setCurrent(current === length ? 0 : current + 1);
   };
 
-  // console.log(current);
-
   const prevSlide = () => {
     setCurrent(current === 0 ? length : current - 1);
   };
