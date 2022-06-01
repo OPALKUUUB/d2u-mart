@@ -1,14 +1,13 @@
 import { useNavigate } from "react-router-dom";
-import "./Card.css";
+import "./CardHeader.css";
 
-const Card = (Name) => {
-    const navigate = useNavigate()
+const CardHeader = (Name) => {
     return (
         <div className="container">
             <div className="card">
                 <h2>{Name.text}</h2>
-                <i className="fas fa-arrow-right"></i>
-                <p>แสดงทั้งหมด</p>
+                <i className="fas fa-arrow-down"></i>
+                <p>ร้านค้าทั้งหมด</p>
                 <div className="pic"></div>
                 <ul>
                     <li></li>
@@ -48,11 +47,11 @@ const Card = (Name) => {
                     <li></li>
                     <li></li>
                 </ul>
-                <button onClick={()=>navigate(Name.link)}>
+                <button>
                 </button>
             </div>
         </div>
     );
 };
 
-export default Card;
+export default CardHeader;
