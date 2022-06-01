@@ -34,9 +34,7 @@ const Auction = () => {
 };
 
 //const Mart = () => {
-//  return (
-//    <CardMart />
-//  );
+//  return
 //};
 
 const OurService = () => {
