@@ -3,31 +3,22 @@ const htmlparser2 = require("htmlparser2");
 const render = require("dom-serializer").default;
 const CSSselect = require("css-select");
 
-// param catId default cat_id = 1148
+// param catId default cat_id = 1148, ?page=0-...
 exports.getDaiso = async (req, res, next) => {
   let datas = [];
   let cat_id = 1148 || req.params.catId;
-  let p = 1;
-  let category = "category";
+  let p = 1 || req.query.page;
   console.log("Crawling CatId: " + cat_id);
-  while (1) {
-    console.log("Crawling Page " + p + "...");
-    // stk=true mean have in stock
-    let link = `https://www.daisonet.com/category/${cat_id}?p=${p}&stk=true`;
-    let data = await getDaisoData(link);
-    if (data.data.length === 0) {
-      category = data.category;
-      console.log("Finish Page catId: " + cat_id);
-      break;
-    }
-    p++;
-    datas.push(...data.data);
-  }
+  console.log("Crawling Page " + p + "...");
+  let link = `https://www.daisonet.com/category/${cat_id}?p=${p}&stk=true`;
+  let data = await getDaisoData(link);
+  console.log("Finish Page catId: " + cat_id);
   res.status(200).json({
-    category: category,
-    length: datas.length,
+    category: data.category,
+    length: data.data.length,
+    page: p,
     crawling_date: new Date().toLocaleString("th"),
-    data: datas,
+    data: data.data,
   });
 };
 
@@ -41,7 +32,7 @@ async function getDaisoData(link) {
       "div.category-page-title div.content-title-list",
       dom
     ).children[0].data;
-    let data = CSSselect.selectAll("div.productCard.-result", dom).map(
+    let data = CSSselect.selectAll(".layout div.productCard.-result", dom).map(
       (productCard) => {
         let id = CSSselect.selectOne(
           "a.productCard-link[href*='/product/']",

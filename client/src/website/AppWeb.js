@@ -3,6 +3,7 @@ import React from "react";
 import { Navbar } from "./component/Navbar";
 import { WebProvider } from "./context/WebProvider";
 import Home from "./page/Home";
+import { MartShowTest } from "./page/Mart/MartShowTest";
 
 const AppWeb = () => {
   return (
@@ -14,6 +15,7 @@ const AppWeb = () => {
         <Route path="/import-service" element={<ImportService />} />
         <Route path="/our-service" element={<OurService />} />
         <Route path="/contact-us" element={<ContactUs />} />
+        <Route path="/test" element={<MartShowTest />} />
       </Routes>
     </WebProvider>
   );
