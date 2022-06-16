@@ -11,10 +11,10 @@ export const MartShowTest = () => {
 
 function App() {
   const { datas, category } = useContext(MartContext);
-  console.log(datas);
   return (
     <section style={{ margin: "100px" }}>
-      <h1>{category}</h1>
+      <h1 style={{ fontSize: "2rem" }}>Daiso</h1>
+      <h1>({category})</h1>
       {datas.length > 0 &&
         datas.map((item, index) => (
           <ul key={index}>

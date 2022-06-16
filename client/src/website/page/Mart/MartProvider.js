@@ -5,25 +5,32 @@ export const MartContext = createContext();
 export const MartProvider = ({ children }) => {
   const [datas, setDatas] = useState([]);
   const [page, setPage] = useState(1);
+  const [catId, setCatId] = useState(1148);
   const [category, setCategory] = useState("");
   const [loading, setLoading] = useState(false);
-  const FetchDaiso = async (catId = 1148, p = 1) => {
+  const FetchDaiso = async (cat_id = 1148, p = 1) => {
     setLoading(true);
-    await fetch(`/daiso/category/${catId}?page=${p}`, { method: "GET" })
+    await fetch(`/daiso/category/${cat_id}?page=${p}`, { method: "GET" })
       .then((res) => res.json())
       .then((data) => {
         setDatas(data.data);
         setCategory(data.category);
-        console.log(data);
       })
       .catch((err) => console.log(err))
       .finally(() => setLoading(false));
   };
   useEffect(() => {
-    FetchDaiso(1148, page);
+    FetchDaiso(catId, page);
   }, []);
   return (
-    <MartContext.Provider value={{ datas: datas, category: category }}>
+    <MartContext.Provider
+      value={{
+        datas: datas,
+        category: category,
+        setCatId: setCatId,
+        setPage: setPage,
+      }}
+    >
       {children}
       {loading && (
         <Styles>
