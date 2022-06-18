@@ -1,47 +1,38 @@
-const conn = require("../connection");
-const jwt = require("jsonwebtoken");
+const query = require("../other/query");
+const genToken = require("../other/genToken");
 
-function genToken(username, id) {
-  console.log(username, id);
-  return jwt.sign({ username: username, id: id }, "fakeauth", {
-    expiresIn: "7d",
-  });
-}
-
-exports.login = (req, res) => {
+exports.login = async (req, res) => {
   const body = req.body;
   const login = [body.username];
-  console.log(login);
   const sql = `
     SELECT password, id
     FROM user_customers
     WHERE username = ?;
     `;
 
-  conn.query(sql, login, (err, result) => {
-    if (err) {
-      console.log("Login Failure (Cann't Query) 💥");
-      console.log(err);
-      res.status(400).json({
-        status: false,
-        message: "Error: " + err.sqlMessage,
+  let rows;
+  try {
+    rows = await query(sql, login).then((res) => res);
+    if (rows.length) {
+      let token = genToken(body.username, rows[0].id);
+      res.status(200).json({
+        status: true,
+        message: "GET /api/yahoo/historys success👍",
+        token: token,
       });
     } else {
-      if (!result.length) {
-        console.log("Login Failure (No Data) 💥");
-        res.status(400).json({
-          status: false,
-          message: "Password doesn't match with username!",
-        });
-      } else if (result[0].password === body.password) {
-        console.log("Login successfully 👍");
-        let token = genToken(body.username, result[0].id);
-        res.status(200).json({
-          status: true,
-          message: "Customer Login successfully 👍",
-          token: token,
-        });
-      }
+      res.status(403).json({
+        status: false,
+        error: "no data",
+        message: "GET /auth/login fail👎",
+      });
     }
-  });
+  } catch (error) {
+    console.log(error);
+    res.status(400).json({
+      status: false,
+      error: error,
+      message: "GET /api/yahoo/historys fail👎",
+    });
+  }
 };
