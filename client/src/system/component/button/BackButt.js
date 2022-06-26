@@ -4,11 +4,9 @@ import "./BackButt.css";
 const BackButt = (Name) => {
     const navigate = useNavigate()
     return (
-        <div className="Header">
-            <button type="button" className="backButt" onClick={()=>navigate(Name.link)}>
-                <span>กลับ </span>
-            </button>
-        </div>
+        <button type="button" className="backButt" onClick={()=>navigate(Name.link)}>
+            <span>กลับ </span>
+        </button>
     );
 };
 
