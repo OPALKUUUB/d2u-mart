@@ -1,7 +1,67 @@
-.Container {
-    background-color: #fff;
-    width: max-content;
-    align-self: center;
-    width: 700px;
+.Menu-Content{
+    width: 100%;
+    padding-left: 250px;
+    padding-top: 150px;
+    align-content: center;
     height: 700px;
 }
+
+.cover {
+    margin-top: 100px;
+    width: 100%;
+    height: auto;
+    left: 0px;
+    z-index: 1;
+}
+
+.promotion {
+    width: 250px;
+    position: absolute;
+    padding-top: 7%;
+    margin-left: 18%;
+}
+
+.side {
+    position: absolute;
+    width: 230px;
+}
+
+.sideProduct {
+    position: absolute;
+    width: 230px;
+    right: 0%;
+}
+
+.content-right {
+    margin-left: 25%;
+    padding-left: 14%;
+    padding-top: 6%;
+    margin-right: 5%;
+}
+
+.content-left {
+    margin-right: 20%;
+    padding-right: 5%;
+    padding-top: 6%;
+    margin-left: 8%;
+}
+
+.product{
+    margin-top: 335px;
+    height: max-content;
+}
+
+.productHeader {
+    width: 250px;
+    position: absolute;
+    padding-top: 7%;
+    right: 18%;
+}
+
+.break{
+    position: absolute;
+    margin-top: 88px;
+    left: 0;
+    width: 100%;
+}
+

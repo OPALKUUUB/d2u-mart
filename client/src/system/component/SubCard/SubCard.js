@@ -11,7 +11,7 @@ const SubCard = (Name) => {
                 </div>
                 <div className="SubCard-contentBx">
                     <h2>{Name.text}</h2>
-                    <a href="#">ซื้อเลย</a>
+                    <a onClick={()=>navigate(Name.link)}>ซื้อเลย</a>
                 </div>
             </div>
         </div>
