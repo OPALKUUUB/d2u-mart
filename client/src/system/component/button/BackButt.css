@@ -1,0 +1,46 @@
+.Header {
+    position: fixed;
+    width: 150px;
+    margin-top: 90px;
+    margin-left: 35px;
+    z-index: 300;
+}
+
+.Header button {
+  font-family: "Prompt", sans-serif;
+  background-color: #100f28;
+  color: #fef1e7;
+  outline: none;
+  border: none;
+  padding: 15px 40px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 30px;
+  width: 150px;
+}
+
+.Header button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.Header button span:after {
+  content: "\00bb";
+  transform: rotate(3.142rad);
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  left: -50px;
+  transition: 0.5s;
+}
+
+.Header button:hover span {
+  padding-left: 25px;
+}
+
+.Header button:hover span:after {
+  opacity: 1;
+  left: -60px;
+}

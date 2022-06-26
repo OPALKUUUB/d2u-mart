@@ -1,10 +1,12 @@
 import "./MartMenu.css";
 import SubCard from "../../../system/component/SubCard/SubCard";
 import SearchBox from "../../../system/component/searchbox/SearchBox";
+import BackButt from "../../../system/component/button/BackButt";
 
 const MartDaiso = () => {
     return (
         <section>
+            <BackButt link = "/mart/MartShop"/>
             <img src="/image/daisoCover.png" className="cover" alt=""></img>
             <div>
                 <img src="/image/side.png" className="side" alt=""></img>
