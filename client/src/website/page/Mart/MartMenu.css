@@ -65,3 +65,33 @@
     width: 100%;
 }
 
+.Readmore-right{
+    position: absolute;
+    margin-top: 70px;
+    right: 9%;
+    cursor: pointer;
+    color: #100f28;
+    font-weight: 500;
+}
+
+.Readmore-left{
+    position: absolute;
+    margin-top: 70px;
+    left: 9%;
+    cursor: pointer;
+    color: #100f28;
+    font-weight: 500;
+}
+
+.Readmore-left:hover {
+    color: #718275;
+    transition: 0.5;
+}
+
+.Readmore-right:hover {
+    color: #718275;
+    transition: 0.5;
+}
+
+
+
